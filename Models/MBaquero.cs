@@ -17,7 +17,7 @@ namespace EvaluacionP1.Models
 
         [ForeignKey("CarreraId")]
         [AllowNull]
-        public int CarreraId { get; set; }
+        public string CarreraId { get; set; }
         public Carrera? Carrera {get; set; }
     }
 }

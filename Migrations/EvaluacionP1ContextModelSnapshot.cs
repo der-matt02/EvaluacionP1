@@ -50,10 +50,8 @@ namespace EvaluacionP1.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("nvarchar(450)");
 
-                    b.Property<int>("CarreraId")
-                        .HasColumnType("int");
-
-                    b.Property<string>("Carreraid")
+                    b.Property<string>("CarreraId")
+                        .IsRequired()
                         .HasColumnType("nvarchar(450)");
 
                     b.Property<DateTime>("anio")
@@ -74,7 +72,7 @@ namespace EvaluacionP1.Migrations
 
                     b.HasKey("id");
 
-                    b.HasIndex("Carreraid");
+                    b.HasIndex("CarreraId");
 
                     b.ToTable("MBaquero");
                 });
@@ -83,7 +81,9 @@ namespace EvaluacionP1.Migrations
                 {
                     b.HasOne("EvaluacionP1.Models.Carrera", "Carrera")
                         .WithMany()
-                        .HasForeignKey("Carreraid");
+                        .HasForeignKey("CarreraId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
                     b.Navigation("Carrera");
                 });

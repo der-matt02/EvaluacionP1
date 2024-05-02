@@ -6,7 +6,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace EvaluacionP1.Migrations
 {
     /// <inheritdoc />
-    public partial class mig1 : Migration
+    public partial class tres : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -35,23 +35,23 @@ namespace EvaluacionP1.Migrations
                     mensualidad = table.Column<double>(type: "float", nullable: false),
                     anio = table.Column<DateTime>(type: "datetime2", nullable: false),
                     reprobo = table.Column<bool>(type: "bit", nullable: false),
-                    CarreraId = table.Column<int>(type: "int", nullable: false),
-                    Carreraid = table.Column<string>(type: "nvarchar(450)", nullable: true)
+                    CarreraId = table.Column<string>(type: "nvarchar(450)", nullable: false)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_MBaquero", x => x.id);
                     table.ForeignKey(
-                        name: "FK_MBaquero_Carrera_Carreraid",
-                        column: x => x.Carreraid,
+                        name: "FK_MBaquero_Carrera_CarreraId",
+                        column: x => x.CarreraId,
                         principalTable: "Carrera",
-                        principalColumn: "id");
+                        principalColumn: "id",
+                        onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.CreateIndex(
-                name: "IX_MBaquero_Carreraid",
+                name: "IX_MBaquero_CarreraId",
                 table: "MBaquero",
-                column: "Carreraid");
+                column: "CarreraId");
         }
 
         /// <inheritdoc />
