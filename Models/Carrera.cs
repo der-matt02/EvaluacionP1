@@ -12,12 +12,7 @@ namespace EvaluacionP1.Models
         public string campus { get; set; }
         public int numeroSemestres { get; set; }
 
-        public Carrera(string id, int nombreCarrera, string campus, int numeroSemestres)
-        {
-            nombreCarrera = nombreCarrera;
-            campus = campus;
-            numeroSemestres = numeroSemestres;
-        }
+        
 
 
     }

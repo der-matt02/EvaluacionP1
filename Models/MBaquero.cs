@@ -15,15 +15,6 @@ namespace EvaluacionP1.Models
         public DateTime anio { get; set; }
         public bool reprobo { get; set; }
 
-        public MBaquero(string id, string nombre, int edad, decimal mensualidad, DateTime anio, bool reprobo)
-        {
-            nombre = nombre;
-            edad = edad;
-            mensualidad = mensualidad;
-            anio = anio;
-            reprobo = reprobo;
-        }
-
         [ForeignKey("CarreraId")]
         [AllowNull]
         public int CarreraId { get; set; }
