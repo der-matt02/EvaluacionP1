@@ -11,7 +11,7 @@ namespace EvaluacionP1.Models
         [Required] public string name { get; set; } = string.Empty;
         public int edad { get; set; }
         [AllowNull]
-        public decimal mensualidad { get; set; }
+        public double  mensualidad { get; set; }
         public DateTime anio { get; set; }
         public bool reprobo { get; set; }
 
